@@ -13,7 +13,7 @@ main {
     width: 100%;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
     main {
         grid-template-columns: 5% [text img] 1fr [radio1] auto [radio2] auto [radio3] auto [radio4] auto 1fr [img-end text-end] 5%;
         grid-template-rows: 5% [img] auto [radios] auto [text] auto 5% 1fr;
