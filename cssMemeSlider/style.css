@@ -1,0 +1,201 @@
+html, body, .content {
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    background-color: #646060;
+    display: grid;
+    grid-template-columns: 5% [text text-end img] auto 1fr [radio1] auto [radio2] auto [radio3] auto [radio4] auto [img-end] 5%;
+    grid-template-rows: 5% [img] 1fr [text radios] auto;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+
+@media (max-width: 500px) {
+    main {
+        grid-template-columns: 5% [text img] 1fr [radio1] auto [radio2] auto [radio3] auto [radio4] auto 1fr [img-end text-end] 5%;
+        grid-template-rows: 5% [img] auto [radios] auto [text] auto 5% 1fr;
+        margin: 0 auto;
+        max-width: 18rem;
+    }
+
+    .img {
+        min-height: 10rem;
+    }
+
+    input {
+        margin-top: 0.5rem;
+    }
+}
+
+.option-input {
+    align-self: center;
+    appearance: none;
+    background: radial-gradient(#88a9e3, #88a9e3 35%, transparent 40%);
+    border-radius: 50%;
+    border-width: 0;
+    cursor: pointer;
+    height: 1.5rem;
+    outline: none;
+    padding: 0;
+    transition: all 0.15s ease-out 0s;
+    width: 1.5rem;
+}
+
+.option-input:hover {
+    background: radial-gradient(white, white 35%, transparent 40%);
+}
+
+.option-input:checked {
+    background: radial-gradient(transparent, transparent 35%, #88a9e3 35%, #88a9e3 40%, transparent 40%);
+}
+
+.img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border-radius: 2vh;
+    box-sizing: border-box;
+    grid-column-end: img-end;
+    grid-column-start: img;
+    grid-row: img;
+}
+
+.img.first {
+    background-color: rgb(255, 255, 255);
+    background-image: url("img/01.png");
+}
+
+.img.second {
+    background-color: rgb(255, 255, 255);
+    background-image: url("img/02.png");
+    opacity: 0;
+    transform: translateX(20%);
+    transition: all 0.3s ease-in-out;
+}
+
+.img.third {
+    background-color: rgb(255, 255, 255);
+    background-image: url("img/03.jpg");
+    opacity: 0;
+    transform: translateX(20%);
+    transition: all 0.3s ease-in-out;
+}
+
+.img.fourth {
+    background-color: rgb(255, 255, 255);
+    background-image: url("img/04.jpg");
+    opacity: 0;
+    transform: translateX(20%);
+    transition: all 0.3s ease-in-out;
+}
+
+p {
+    color: white;
+    grid-column-start: text;
+    grid-column-end: text-end;
+    grid-row: text;
+}
+
+p.first {
+    opacity: 0;
+    transform: translateX(20%);
+    transition: all 0.3s ease-in-out;
+}
+
+p.second {
+    opacity: 0;
+    transform: translateX(20%);
+    transition: all 0.3s ease-in-out;
+}
+
+p.third {
+    opacity: 0;
+    transform: translateX(20%);
+    transition: all 0.3s ease-in-out;
+}
+
+p.fourth {
+    opacity: 0;
+    transform: translateX(20%);
+    transition: all 0.3s ease-in-out;
+}
+
+#radio-first:checked ~ p.first {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#radio-second:checked ~ p.second {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#radio-second:checked ~ p.first {
+    opacity: 0;
+    transform: translateX(0);
+}
+
+#radio-third:checked ~ p.third {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#radio-third:checked ~ p.first,
+#radio-third:checked ~ p.second {
+    opacity: 0;
+    transform: translateX(0);
+}
+
+#radio-fourth:checked ~ p.fourth {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#radio-fourth:checked ~ p.first,
+#radio-fourth:checked ~ p.second,
+#radio-fourth:checked ~ p.third {
+    opacity: 0;
+    transform: translateX(0);
+}
+
+#radio-first {
+    grid-column: radio1;
+    grid-row: radios;
+}
+
+#radio-second {
+    grid-column: radio2;
+    grid-row: radios;
+}
+
+#radio-third {
+    grid-column: radio3;
+    grid-row: radios;
+}
+
+#radio-fourth {
+    display: inline-block;
+    grid-column: radio4;
+    grid-row: radios;
+}
+
+#radio-second:checked ~ .img.second,
+#radio-third:checked ~ .img.second,
+#radio-fourth:checked ~ .img.second {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#radio-third:checked ~ .img.third,
+#radio-fourth:checked ~ .img.third {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#radio-fourth:checked ~ .img.fourth {
+    opacity: 1;
+    transform: translateX(0);
+}
